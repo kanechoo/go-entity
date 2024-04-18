@@ -20,8 +20,8 @@ type IPTaskPO struct {
 	Runtime    int       `json:"run_time"`    // 任务的运行时间(单位:秒)
 }
 
-// IPNetBlock 结构体
-type IPNetBlock struct {
+// IPNetBlockDTO 结构体
+type IPNetBlockDTO struct {
 	NetBlock string `json:"netblock"`
 	ID       string `json:"id"`
 	Name     string `json:"name"`
@@ -31,21 +31,21 @@ type IPNetBlock struct {
 	Domain   string `json:"domain"`
 }
 
-// ASNInfo ASN结构体
-type ASNInfo struct {
-	ASN       string       `json:"asn"`
-	Name      string       `json:"name"`
-	Country   string       `json:"country"`
-	Allocated string       `json:"allocated"`
-	Registry  string       `json:"registry"`
-	Domain    string       `json:"domain"`
-	NumIPs    int          `json:"num_ips"`
-	Type      string       `json:"type"`
-	NetBlocks []IPNetBlock `json:"prefixes"`
+// ASNInfoDTO ASN结构体
+type ASNInfoDTO struct {
+	ASN       string          `json:"asn"`
+	Name      string          `json:"name"`
+	Country   string          `json:"country"`
+	Allocated string          `json:"allocated"`
+	Registry  string          `json:"registry"`
+	Domain    string          `json:"domain"`
+	NumIPs    int             `json:"num_ips"`
+	Type      string          `json:"type"`
+	NetBlocks []IPNetBlockDTO `json:"prefixes"`
 }
 
-// ASNFilter ASN过滤器
-type ASNFilter struct {
+// ASNFilterDTO ASN过滤器
+type ASNFilterDTO struct {
 	// Asn ASN编号
 	ASN int
 	// Country ASN所在国家
@@ -53,15 +53,15 @@ type ASNFilter struct {
 	//NetBlock ASN网段
 	NetBlock string
 }
-type IPBase struct {
+type BaseIPDTO struct {
 	ASN  string `json:"asn"`
 	Ct   string `json:"country"`
 	IP   string `json:"ip"`
 	Port string `json:"port"`
 }
 
-// RawIPPO ip 表
-type RawIPPO struct {
+// CheckIPPO ip 表
+type CheckIPPO struct {
 	ID         int       `json:"id"`          // 记录ID
 	IP         string    `json:"ip"`          // IP地址
 	Port       uint16    `json:"port"`        // 端口
