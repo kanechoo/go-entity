@@ -4,8 +4,8 @@ import (
 	"time"
 )
 
-// IPTask  ip_scan_tasks 表
-type IPTask struct {
+// IPTaskPO  ip_scan_tasks 表
+type IPTaskPO struct {
 	ID         int       `json:"id"`          // 记录ID
 	TaskName   string    `json:"task_name"`   // 任务名称
 	StartTime  time.Time `json:"start_time"`  // 任务开始时间
@@ -58,4 +58,31 @@ type IPBase struct {
 	Ct   string `json:"country"`
 	IP   string `json:"ip"`
 	Port string `json:"port"`
+}
+
+// RawIPPO ip 表
+type RawIPPO struct {
+	ID         int       `json:"id"`          // 记录ID
+	IP         string    `json:"ip"`          // IP地址
+	Port       uint16    `json:"port"`        // 端口
+	ASN        string    `json:"asn"`         // IP地址所属ASN
+	Country    string    `json:"country"`     // 国家
+	CreateTime time.Time `json:"create_time"` // 创建时间
+	UpdateTime time.Time `json:"update_time"` // 更新时间
+}
+type ValidIPPO struct {
+	Query       string  `json:"query"`
+	Status      string  `json:"status"`
+	Country     string  `json:"country"`
+	CountryCode string  `json:"countryCode"`
+	Region      string  `json:"region"`
+	RegionName  string  `json:"regionName"`
+	City        string  `json:"city"`
+	Zip         string  `json:"zip"`
+	Latitude    float64 `json:"lat"`
+	Longitude   float64 `json:"lon"`
+	Timezone    string  `json:"timezone"`
+	ISP         string  `json:"isp"`
+	Org         string  `json:"org"`
+	AS          string  `json:"as"`
 }
