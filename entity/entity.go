@@ -6,18 +6,19 @@ import (
 
 // IPTaskPO  ip_scan_tasks 表
 type IPTaskPO struct {
-	ID         int       `json:"id"`          // 记录ID
-	TaskName   string    `json:"task_name"`   // 任务名称
-	StartTime  time.Time `json:"start_time"`  // 任务开始时间
-	EndTime    time.Time `json:"end_time"`    // 任务接收时间
-	ASN        string    `json:"asn"`         // ASN编号
-	Name       string    `json:"name"`        // ASN名称
-	NetBlock   string    `json:"netblock"`    // ASN的网段
-	NumIPs     int       `json:"num_ips"`     // IP数量
-	Country    string    `json:"country"`     // ASN所属国家编码
-	Domain     string    `json:"domain"`      // ASN所属者的域名
-	CreateTime time.Time `json:"create_time"` // 任务的创建时间
-	Runtime    int       `json:"run_time"`    // 任务的运行时间(单位:秒)
+	// 记录ID
+	ID         int       `json:"id" db:"id"`
+	TaskName   string    `json:"task_name" db:"task_name"`     // 任务名称
+	StartTime  time.Time `json:"start_time" db:"start_time"`   // 任务开始时间
+	EndTime    time.Time `json:"end_time" db:"end_time"`       // 任务结束时间
+	ASN        string    `json:"asn" db:"asn"`                 // ASN编号
+	Name       string    `json:"name" db:"name"`               // ASN名称
+	NetBlock   string    `json:"netblock" db:"netblock"`       // ASN网段
+	NumIPs     int       `json:"num_ips" db:"num_ips"`         // ASN包含的IP数量
+	Country    string    `json:"country" db:"country"`         // ASN所属国家
+	Domain     string    `json:"domain" db:"domain"`           // ASN所属者域名
+	CreateTime time.Time `json:"create_time" db:"create_time"` // 创建时间
+	Runtime    int       `json:"run_time" db:"run_time"`       // 运行时间
 }
 
 // IPNetBlockDTO 结构体
@@ -62,29 +63,29 @@ type BaseIPDTO struct {
 
 // CheckIPPO ip 表
 type CheckIPPO struct {
-	ID         int       `json:"id"`          // 记录ID
-	IP         string    `json:"ip"`          // IP地址
-	Port       uint16    `json:"port"`        // 端口
-	ASN        string    `json:"asn"`         // IP地址所属ASN
-	Country    string    `json:"country"`     // 国家
-	CreateTime time.Time `json:"create_time"` // 创建时间
-	UpdateTime time.Time `json:"update_time"` // 更新时间
-	Check      int       `json:"check"`       //是否已检查可用性，1-已检查，0-未检查
+	ID         int       `json:"id" db:"id"`                   // 记录ID
+	IP         string    `json:"ip" db:"ip"`                   // IP地址
+	Port       uint16    `json:"port" db:"port"`               // 端口
+	ASN        string    `json:"asn" db:"asn"`                 // ASN编号
+	Country    string    `json:"country" db:"country"`         // 国家
+	CreateTime time.Time `json:"create_time" db:"create_time"` // 创建时间
+	UpdateTime time.Time `json:"update_time" db:"update_time"` // 更新时间
+	Check      int       `json:"check" db:"check"`             // 是否检查过
 }
 type ValidIPPO struct {
-	Query       string  `json:"query"`
-	Port        int     `json:"port"`
-	Status      string  `json:"status"`
-	Country     string  `json:"country"`
-	CountryCode string  `json:"countryCode"`
-	Region      string  `json:"region"`
-	RegionName  string  `json:"regionName"`
-	City        string  `json:"city"`
-	Zip         string  `json:"zip"`
-	Latitude    float64 `json:"lat"`
-	Longitude   float64 `json:"lon"`
-	Timezone    string  `json:"timezone"`
-	ISP         string  `json:"isp"`
-	Org         string  `json:"org"`
-	AS          string  `json:"as"`
+	Query       string  `json:"query" db:"query"`
+	Port        int     `json:"port" db:"port"`
+	Status      string  `json:"status" db:"status"`
+	Country     string  `json:"country" db:"country"`
+	CountryCode string  `json:"countryCode" db:"country_code"`
+	Region      string  `json:"region" db:"region"`
+	RegionName  string  `json:"regionName" db:"region_name"`
+	City        string  `json:"city" db:"city"`
+	Zip         string  `json:"zip" db:"zip"`
+	Latitude    float64 `json:"lat" db:"latitude"`
+	Longitude   float64 `json:"lon" db:"longitude"`
+	Timezone    string  `json:"timezone" db:"timezone"`
+	ISP         string  `json:"isp" db:"isp"`
+	Org         string  `json:"org" db:"org"`
+	AS          string  `json:"as" db:"as"`
 }
