@@ -73,6 +73,7 @@ type CheckIPPO struct {
 }
 type ValidIPPO struct {
 	Query       string  `json:"query"`
+	Port        int     `json:"port"`
 	Status      string  `json:"status"`
 	Country     string  `json:"country"`
 	CountryCode string  `json:"countryCode"`
