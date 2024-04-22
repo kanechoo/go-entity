@@ -69,6 +69,7 @@ type CheckIPPO struct {
 	Country    string    `json:"country"`     // 国家
 	CreateTime time.Time `json:"create_time"` // 创建时间
 	UpdateTime time.Time `json:"update_time"` // 更新时间
+	Check      int       `json:"check"`       //是否已检查可用性，1-已检查，0-未检查
 }
 type ValidIPPO struct {
 	Query       string  `json:"query"`
