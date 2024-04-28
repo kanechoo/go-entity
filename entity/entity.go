@@ -47,11 +47,11 @@ type ASNInfoDTO struct {
 
 // ASNFilterDTO ASN过滤器
 type ASNFilterDTO struct {
-	// Asn ASN编号
-	ASN int
-	// Country ASN所在国家
+	// Asn ASN编号(用,分隔)
+	ASN string
+	// Country ASN所在国家(用,分隔)
 	Country string
-	//NetBlock ASN网段
+	//NetBlock ASN网段(用,分隔)
 	NetBlock string
 }
 type BaseIPDTO struct {
