@@ -49,8 +49,8 @@ type ASNInfoDTO struct {
 type ASNFilterDTO struct {
 	// Asn ASN编号(用,分隔)
 	ASN string
-	// Country ASN所在国家(用,分隔)
-	Country string
+	// NetBlockCountry ASN的NetBlock所在国家(用,分隔)
+	NetBlockCountry string
 	//NetBlock ASN网段(用,分隔)
 	NetBlock string
 }
